@@ -1,3 +1,3 @@
 # mapdemos
 
-Small demos of mapping features, primarily with LeafletJS
+Demos of LeafletJS mapping features
