@@ -7,7 +7,7 @@ This is how we do it. We use the SimpleHttpServer available in Python 2.7.  We o
 
 There are a couple command files the help.  To use these, you must first install a recent version of Python 2.7.
 
-[Python 2.7 download site](https://www.python.org/download/releases/2.7/)
+<a href="https://www.python.org/download/releases/2.7/" target="_blank">Python 2.7 download site</a>
 
 Then run (just double-click):
 ```

@@ -11,7 +11,7 @@ Some of the html may not work properly when hosted from the file system.  They'l
 There are several ways to do this. 
 
 * Use Visual Studio.
-The starting point for this project is mapdemos.sln, a Visual Studio solution.  The free "Visual Studio Community" edition is available from https://www.visualstudio.com/products/free-developer-offers-vs .
+The starting point for this project is mapdemos.sln, a Visual Studio solution.  The free "Visual Studio Community" edition is available from <a href="https://www.visualstudio.com/products/free-developer-offers-vs" target="_blank">Get Visual Studio</a>.
 
 * Use a python web server.
 If you're working with Windows, and you'll be using the including command files to run a web server from the local directory, see these instructions: [Instructions.md](./Instructions.md)
