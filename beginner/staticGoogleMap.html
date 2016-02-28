@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" ng-app="geoloc">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>static Google Map</title>
+    <style type="text/css">
+        body {
+            background: #ffffff;
+            font-family: sans-serif;
+        }
+        .heading {
+            font-size: 100%;
+            font-weight: bold;
+        }
+        .error {
+            background: #ffcccc;
+            color: red;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .useAngular {
+            background: #ccffff;
+            display: inline-block;
+            margin: 10px 0 10px 0;
+            padding: 5px;
+        }
+        .useJavascript {
+            background: #ffffcc;
+            display: inline-block;
+            margin: 10px 0 10px 0;
+            padding: 5px;
+        }
+        .waitToShow {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>static Google Map</div>
+    <div>Demos reading geolocation with two methods: javascript and AngularJS</div>
+    <div class="isAvailable"></div>
+    <div class="content">
+        <div class="useJavascript">
+            <div class="heading">Using js and jQuery</div>
+            <div class="waiting">Waiting ... </div>
+            <div class="waitToShow">Fetched <span class="count"></span> times.</div>
+            <div class="waitToShow">lat: <span class="lat"></span></div>
+            <div class="waitToShow">lng: <span class="lng"></span></div>
+        </div>
+    </div>
+    <div class="content" ng-controller="geolocCtrl">
+        <div class="useAngular" ng-show='supportsLocation'>
+            <div class="heading">Using AngularJS</div>
+            <!-- <div>GeoLocation is available.</div> -->
+            <div ng-show="count == 0">Waiting ... </div>
+            <div ng-hide="count == 0">Fetched <span>{{count}}</span> times.</div>
+            <div ng-hide="count == 0">lat: <span>{{lat}}</span></div>
+            <div ng-hide="count == 0">lng: <span>{{lng}}</span></div>
+        </div>
+        <div>
+            <div class="error" ng-hide='supportsLocation'>Warning: Geolocation is NOT available.</div>
+        </div>
+    </div>
+    <div id="mapholder"></div>
+    
+<!-- scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script>
+
+(function ($) {
+
+    var startDelay = 5000; // milliseconds
+    var hasGeolocation = "geolocation" in navigator;
+    $(".isAvailable").text = "GeoLocation is " + (hasGeolocation ? "": "NOT ") + "available.";
+    if (!hasGeolocation) {
+        $(".isAvailable").css({'color': 'red', 'font-weight': 'bold'});
+    }
+
+    // javascript + jQuery
+    (function ($, startDelay) {
+
+        function init() {
+            $(".waiting").show();
+            $(".waitToShow").hide();
+            show();
+            setTimeout(watch, startDelay);
+        }
+        function show(position) {
+            $(".count").text(count);
+            if (position) {
+                $(".lat").text(position.coords.latitude);
+                $(".lng").text(position.coords.longitude);
+            }
+        }
+        function showMap(position) {
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
+            if (prevLatLon !== latlon) {
+                prevLatLon = latlon;
+                var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+                        +latlon+"&zoom=14&size=400x300&sensor=false";
+                document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+            }
+        }
+        function watch() {
+            var watchID = navigator.geolocation.watchPosition(function (position) {
+                count++;
+                $(".waiting").hide();
+                $(".waitToShow").show();
+                show(position);
+                showMap(position);
+            });
+        }
+        
+        var count = 0;
+        var prevLatLon = "";
+        init();
+    })($, startDelay);
+
+    // AngularJS
+    var geoloc = angular.module("geoloc", []);
+    geoloc.controller("geolocCtrl", function ($scope, $timeout) {
+        $scope.supportsLocation = "geolocation" in navigator;
+        $scope.count = 0;
+        $scope.lat = "";
+        $scope.lng = "";
+        $scope.latlng = "";
+        $timeout(function (){
+            setWatch($scope);
+        }, startDelay);
+        
+        function setWatch($scope) {
+            if ($scope.supportsLocation) {
+                $scope.watchID = navigator.geolocation.watchPosition(function (position) {
+                    $scope.$apply(function () {
+                        $scope.count++;
+                        display($scope, position);
+                    });
+                });
+            }
+        };
+        function display($scope, position) {
+            $scope.lat = position.coords.latitude;
+            $scope.lng = position.coords.longitude;
+            $scope.latlng = "" + $scope.lat + ", " + $scope.lng;
+        };
+    });
+    
+})($);
+</script>
+
+</body>
+</html>
