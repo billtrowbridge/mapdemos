@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <title>static Google Map</title>
+    <title>Static Google Map</title>
     <style type="text/css">
         body {
             background: #ffffff;
@@ -38,8 +38,8 @@
 </head>
 
 <body>
-    <div>static Google Map</div>
-    <div>Demos reading geolocation with two methods: javascript and AngularJS</div>
+    <div>Static Google Map</div>
+    <div>Demo reads geolocation with two methods: javascript and AngularJS</div>
     <div class="isAvailable"></div>
     <div class="content">
         <div class="useJavascript">
@@ -120,33 +120,37 @@
     })($, startDelay);
 
     // AngularJS
-    var geoloc = angular.module("geoloc", []);
-    geoloc.controller("geolocCtrl", function ($scope, $timeout) {
-        $scope.supportsLocation = "geolocation" in navigator;
-        $scope.count = 0;
-        $scope.lat = "";
-        $scope.lng = "";
-        $scope.latlng = "";
-        $timeout(function (){
-            setWatch($scope);
-        }, startDelay);
+    (function (startDelay) {
         
-        function setWatch($scope) {
-            if ($scope.supportsLocation) {
-                $scope.watchID = navigator.geolocation.watchPosition(function (position) {
-                    $scope.$apply(function () {
-                        $scope.count++;
-                        display($scope, position);
+        var geoloc = angular.module("geoloc", []);
+        geoloc.controller("geolocCtrl", function ($scope, $timeout) {
+            $scope.supportsLocation = "geolocation" in navigator;
+            $scope.count = 0;
+            $scope.lat = "";
+            $scope.lng = "";
+            $scope.latlng = "";
+            $timeout(function (){
+                setWatch($scope);
+            }, startDelay);
+            
+            function setWatch($scope) {
+                if ($scope.supportsLocation) {
+                    $scope.watchID = navigator.geolocation.watchPosition(function (position) {
+                        $scope.$apply(function () {
+                            $scope.count++;
+                            display($scope, position);
+                        });
                     });
-                });
-            }
-        };
-        function display($scope, position) {
-            $scope.lat = position.coords.latitude;
-            $scope.lng = position.coords.longitude;
-            $scope.latlng = "" + $scope.lat + ", " + $scope.lng;
-        };
-    });
+                }
+            };
+            function display($scope, position) {
+                $scope.lat = position.coords.latitude;
+                $scope.lng = position.coords.longitude;
+                $scope.latlng = "" + $scope.lat + ", " + $scope.lng;
+            };
+        });
+        
+    })(startDelay);
     
 })($);
 </script>
