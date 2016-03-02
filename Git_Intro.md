@@ -1,18 +1,22 @@
 
 # TITLE: Working with git
-# for sample project: mapdemos
+## for sample project: mapdemos
 
 ### NOTE: Wherever you see USERNAME below, put your own user name.
 
 ## Introduction
+
     Git is a source control system.  It is typically used to maintain control of
     source code and make sure that changes are recorded and never lost.
     When using git, we're typically concerned with three different locations:
+    
     (1) your working directory -- the folder on your machine where
         you'll be editing your project.
+        
     (2) the local repository -- hides inside the hidden .git folder in your
         working directory.  This is a complete copy of the repository.
         Do not directly change anything in the hidden .git folder.  Look, don't touch.
+        
     (3) a remote repository -- a safe store from where we'll pull down other
         people's changes, and do merges locally (mostly automatically,
         sometimes manually), and we'll also push our changes to it.
@@ -20,7 +24,8 @@
         on the Internet.  Many teams use private repositories on github.com.
         It's typically known by it's URL: https://github.com/billtrowbridge/mapdemos
 
-    Git weaknesses:
+    ##### Git weaknesses:
+    
         Git does not itself maintain history across renames or moving files
     from directory to directory.  Therefore, it's a good idea to determine and
     set up your directory structure before you start adding a lot files
@@ -31,6 +36,7 @@
     often support many command-line options, and can be very complex.
 
 (1) Install git from https://git-scm.com/downloads
+
     If on windows, choose the options to install just the Windows stuff.
 
     NOTE: git comes with a built-in GUI Tool called git-gui.  It's not great.
@@ -44,21 +50,25 @@
     It's an add-in for Visual Studio.
 
 (2) Make a directory where you will keep some of your "working directories".
+
     This is where you will keep and work on the projects.
     I made mine at:
         C:/users/USERNAME/Documents/GitHub/
 
 (3) Make a new "working directory" somewhere on your system.
+
     I made mine at:
         C:/users/USERNAME/Documents/GitHub/mapdemos
     This is where we'll work on this particular project.
 
 (4) (optional, or any time)
+
     I have set up a public sample repository on github.
     You can use your browser and go to this URL to see it.
         https://github.com/billtrowbridge/mapdemos
 
 (5) For these instructions, we'll be doing most of the commands
+
     in a command window.
     If you have a folder open in Windows Explorer, you can do shift-right-click and
         select "Open command window here" to open a command window at that directory.
@@ -79,6 +89,7 @@
     If the git executable does not run, it probably needs to be added to the DOS path.
 
 (7) Configure git so that it knows who you are.
+
     If you don't have a github account, sign up for a free account now.
         https://github.com/
     If you already have a github account, use the name and email that you used for github.
