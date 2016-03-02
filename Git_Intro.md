@@ -1,41 +1,42 @@
 
-# TITLE: Working with git
-## for sample project: mapdemos
+# Working with git
+#### for sample project: mapdemos
 
-### NOTE: Wherever you see USERNAME below, put your own user name.
+#### NOTE: Wherever you see `USERNAME` below, put your own user name.
 
 ## Introduction
 
-Git is a source control system.  It is typically used to maintain control of
-source code and make sure that changes are recorded and never lost.
-When using git, we're typically concerned with three different locations:
+Git is a source control system.  It is used to maintain control of files
+(typically source code) and make sure that changes are recorded and never lost.
+In a typical configuration, we're concerned with three different locations:
 
-1. your working directory -- the folder on your machine where
+1. *your working directory* -- the folder on your machine where
 you'll be editing your project.
 
-2. the local repository -- hides inside the hidden .git folder in your
+2. *the local repository* -- hides inside the hidden .git folder in your
 working directory.  This is a complete copy of the repository.
 Do not directly change anything in the hidden .git folder.  Look, don't touch.
 
-3. a remote repository -- a safe store from where we'll pull down other
-people's changes, and do merges locally (mostly automatically,
-sometimes manually), and we'll also push our changes to it.
-Typically, this would be hosted on a corporate server, or a cloud server
+3. *a remote repository* -- a safe store for the project files.
+Other team members may also change the files there, so we'll pull down those
+changes, and merge them with our changes locally (mostly automatically,
+sometimes manually), and we'll also push our changes up to it.
+Typically, the remote repository would be hosted on a corporate server, or a cloud server
 on the Internet.  Many teams use private repositories on github.com.
-It's typically known by it's URL: <a href="https://github.com/billtrowbridge/mapdemos" target="_blank">https://github.com/billtrowbridge/mapdemos</a>
+The remote repository is typically known by it's URL, for example: <a href="https://github.com/billtrowbridge/mapdemos" target="_blank">https://github.com/billtrowbridge/mapdemos</a>
 
 ##### Git weaknesses:
 
 - Git does not itself maintain history across renames or moving files
 from directory to directory.  Therefore, it's a good idea to determine and
 set up your directory structure before you start adding a lot files
-to your project.  It's a good idea to look at a lot of other public
+to your project.  It's useful to look at a lot of other public
 github repositories to see how they are organized.
 
 - Most of the git commands used below are very simple usages.  The commands
 often support many command-line options, and can be very complex.
 
-- It is very VERY important to never store any secure information ( passwords, access keys, or access tokens, etc. ) in a repository.  Even if it is later removed, it will still exist in the historical record logs for the file.  These are easy
+- It is very VERY important to *never store any secure information* ( passwords, access keys, or access tokens, etc. ) in a repository.  Even if it is later removed, it will still exist in the historical record logs for the file.  These are easy
 to retrieve and read.  So avoid putting such secure information in your working directory at all.  And never add, commit,
 or push a file with secure information to your repository.
 
@@ -60,14 +61,14 @@ It's an add-in for Visual Studio.
 This is where you will keep and work on the projects.
 I made mine at:
 ```
-C:/users/USERNAME/Documents/GitHub/`
+C:/Users/USERNAME/Documents/GitHub/`
 ```
 
 (3) Make a new "working directory" somewhere on your system.
 
 I made mine at:
 ```
-C:/users/USERNAME/Documents/GitHub/mapdemos
+C:/Users/USERNAME/Documents/GitHub/mapdemos
 ```
 This is where we'll work on this particular project.
 
@@ -86,7 +87,7 @@ select "Open command window here" to open a command window at that directory.
 Or, press the Windows button, enter "cmd" and press enter.
 Then enter this command:
 ```
-> cd C:/users/USERNAME/Documents/GitHub
+> cd C:/Users/USERNAME/Documents/GitHub
 ```
 Make sure you're in the command window in that directory.
 
@@ -109,7 +110,7 @@ Put your name and email address inside the quotes below.  Omit the brackets.
 > git config --global user.name "[name]"
 > git config --global user.email "[email address]"
 ```
-These settings are stored in a hidden file C:/Users/{username}/.gitconfig
+These settings are stored in a hidden file C:/Users/USERNAME/.gitconfig
 
 (8) Enter:
 ```
@@ -129,7 +130,7 @@ This is the pattern we will typically use.
 > git status
 ```
 We're now in the the local "working directory" for the mapdemos project.
-C:/users/USERNAME/Documents/GitHub/mapdemos
+C:/Users/USERNAME/Documents/GitHub/mapdemos
 It should say that the branch is up-to-date.
 At this point, you have the whole repository, and you have a working directory
 with all the contents.  You can edit/add/delete files as you will.
@@ -152,31 +153,31 @@ you'll be making changes.  This is the process or sequence used to keep the repo
 
 The sequence is change, add, commit, pull, merge, push.
 
-1. Change files in your working directory.  This includes edit, create, or delete of files.
+(1) Change files in your working directory.  This includes edit, create, or delete of files.
 For example:
 ```
 > echo "This is a new file." > newfile.txt
 ```
 
-2. Add files to the local repository
+(2) Add files to the local repository
 ```
 > git add .
 ```
 
-3. Commit files to the local repository
+(3) Commit files to the local repository
 ```
 > git commit -m "Fixed whatever, etc"
 ```
 
-4. Pull file changes that anyone else has made from the remote repository.  This is very ***IMPORTANT***, to avoid just overwriting their changes.
+(4) Pull file changes that anyone else has made from the remote repository.  This is very ***IMPORTANT***, to avoid just overwriting their changes.
 ```
 > git pull
 ```
 
-5. Merge differences.  Typically, any differences are automatically merged.  If that's not possible, you'll need to manually merge them.
+(5) Merge differences.  Typically, any differences are automatically merged.  If that's not possible, you'll need to manually merge them.
 [TODO: Add more detailed instructions about manually merging.]
 
-6. Push changes to the remote repository
+(6) Push changes to the remote repository
 ```
 > git push https://github.com/billtrowbridge/mapdemos
 ```
@@ -185,22 +186,23 @@ but, if you cloned a project, it remembers where it came from, so this works:
 > git push
 ```
 If you haven't cloned it, it's possible to carefully change the configuration file
-in the local repository ( .git/config  ) so that it knows the remote repository.
+in the local repository `.git/config` so that it knows the remote repository.
 
 
-### :
+### Extra Information
 
-- Making a brand new empty repository
-Create and move to a new directory
+- Make a brand new empty repository.
+
+Create and move to a new directory, and initialize a repository.
 ```
-> md *the_new_directory*
-> cd *the_new_directory*
+> md the_new_directory
+> cd the_new_directory
 > git init
 ```
 
-- Making a repository from a directory with a existing project
+- Make a repository from a directory with a existing project
 ```
-> cd *the_project_directory*
+> cd the_project_directory
 > git init
 > git add .
 ```
@@ -213,16 +215,17 @@ WARNING: This does not pick up newly created files, nor newly deleted files.
 ```
 
 - Special files.  In the working directory, you can put certain configuration files.
-+ The .gitignore file has configuration information to prevent certain files in working directory from being stored in the repository.
-+ The .gitattributes has some additional configuration information.  The most common settings control crlf processing for various operating systems.
+  + The .gitignore file has configuration information to prevent certain files in working directory from being stored in the repository.
+  + The .gitattributes has some additional configuration information.  The most common settings control crlf processing for various operating systems.
 
-- Using a different editor (not vim)   If you do get stuck in the vim editor, the following key sequence will usually get you out: `ESC q ! ENTER` .  The following links are quite thorough in describing ways to set up an editor that you prefer.
+- Use a different editor (not vim).  The following links are quite thorough in describing ways to set up an editor that you prefer.
 ```
 http://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits
 ```
 ```
 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
 ```
+If you do get stuck in the vim editor, the following key sequence will usually get you out: `ESC q ! ENTER` .  
 
 ### Good Git Help Links
 ```
