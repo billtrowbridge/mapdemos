@@ -73,9 +73,8 @@ This is where we'll work on this particular project.
 
 I have set up a public sample repository on github.
 You can use your browser and go to this URL to see it.
-```
-href="https://github.com/billtrowbridge/mapdemos
-```
+
+<a href="https://github.com/billtrowbridge/mapdemos">https://github.com/billtrowbridge/mapdemos</a>
 
 (5) For these instructions, we'll be doing most of the commands in a command window.
 
