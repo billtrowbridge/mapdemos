@@ -64,11 +64,15 @@
         select "Open command window here" to open a command window at that directory.
     Or, press the Windows button, enter "cmd" and press enter.
     Then enter this command:
+```
         > cd C:/users/USERNAME/Documents/GitHub
+```
     Make sure you're in the command window in that directory.
         
 (6) Enter:
+```
         > git status
+```
     The git executable should run, and it should show that there is no repository here.
     "git status" is always optional, but we'll be doing it a lot to show
     what's going on.
@@ -79,13 +83,17 @@
         https://github.com/
     If you already have a github account, use the name and email that you used for github.
     Put your name and email address inside the quotes below.  Omit the brackets.
+```
         > git config --global user.name "[name]"
         > git config --global user.email "[email address]"
+```
 
 (8) Enter:
+```
         > git clone https://github.com/billtrowbridge/mapdemos
     or
         > git clone https://github.com/billtrowbridge/mapdemos.git
+```
     The ".git" at the end is optional.
     It should show "cloning" and eventually "done".
     This clones the remote repository from my server to your local repository.
@@ -96,8 +104,10 @@
     This is the pattern we will typically use.
 
 (9) Enter:
+```
         > cd mapdemos
         > git status
+```    
     We're now in the the local "working directory"
         C:/users/USERNAME/Documents/GitHub/mapdemos
     It should say that the branch is up-to-date.
@@ -105,7 +115,9 @@
     with all the contents.  You can edit/add/delete files as you will.
 
 (10) Enter:
+```        
         > dir
+```
     This should show files in the working directory, including README.md,
     which is a file shown on the main page of the github project.
     It is a text file which can also contain markdown code to mark
@@ -158,16 +170,22 @@ making a repository from a directory with a existing project
 ----------------
 
 (11) Create a new file
+```
         > echo "This is a new file." > newfile.txt
+```
 
 ### More:
 
 Using a different editor (not vim):
+
     http://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits
+    
     https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
 
 ### Good Git Help Links
+
 http://classic.scottr.org/presentations/git-in-5-minutes/
+
 https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf
 
 
