@@ -44,7 +44,7 @@ or push a file with secure information to your repository.
 
 (1) Install git from <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a>
 
-If on windows, choose the options to install just the Windows stuff.
+If on Windows, choose the options to install just the Windows stuff.
 
 NOTE: git comes with a built-in GUI Tool called git-gui.  It's not great.
 At some later time, you might want to become familiar with that,
@@ -58,15 +58,12 @@ It's an add-in for Visual Studio.
 
 (2) Make a directory where you will keep some of your "working directories".
 
-This is where you will keep and work on the projects.
-I made mine at:
+This is where you will keep and work on the projects.  I made mine at:
 ```
 C:/Users/USERNAME/Documents/GitHub/`
 ```
 
-(3) Make a new "working directory" somewhere on your system.
-
-I made mine at:
+(3) Make a new "working directory" somewhere on your system.  I made mine at:
 ```
 C:/Users/USERNAME/Documents/GitHub/mapdemos
 ```
@@ -77,7 +74,7 @@ This is where we'll work on this particular project.
 I have set up a public sample repository on github.
 You can use your browser and go to this URL to see it.
 ```
-<a href="https://github.com/billtrowbridge/mapdemos" target="_blank">https://github.com/billtrowbridge/mapdemos</a>
+href="https://github.com/billtrowbridge/mapdemos
 ```
 
 (5) For these instructions, we'll be doing most of the commands in a command window.
@@ -103,7 +100,7 @@ If the git executable does not run, it probably needs to be added to the DOS pat
 (7) Configure git so that it knows who you are.
 
 If you don't have a github account, sign up for a free account now.
-`<a href="https://github.com/" target="_blank">https://github.com/</a>`
+<a href="https://github.com/" target="_blank">https://github.com/</a>
 If you already have a github account, use the name and email that you used for github.
 Put your name and email address inside the quotes below.  Omit the brackets.
 ```
@@ -149,7 +146,7 @@ See <a href="https://help.github.com/articles/getting-started-with-writing-and-f
 ### The work cycle:
 
 Now that you have a working directory, your local repository, and an association with the remote repository,
-you'll be making changes.  This is the process or sequence used to keep the repository up to date.
+you'll be making changes.  This is the process or sequence we will use to keep the repository up to date.
 
 The sequence is change, add, commit, pull, merge, push.
 
@@ -159,7 +156,7 @@ For example:
 > echo "This is a new file." > newfile.txt
 ```
 
-(2) Add files to the local repository
+(2) Add files to the local repository.  This picks up new files, edits, and file deletions, even renames.
 ```
 > git add .
 ```
@@ -219,21 +216,19 @@ WARNING: This does not pick up newly created files, nor newly deleted files.
   + The .gitattributes has some additional configuration information.  The most common settings control crlf processing for various operating systems.
 
 - Use a different editor (not vim).  The following links are quite thorough in describing ways to set up an editor that you prefer.
-```
+
 http://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits
-```
-```
+
 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
-```
+
 If you do get stuck in the vim editor, the following key sequence will usually get you out: `ESC q ! ENTER` .  
 
 ### Good Git Help Links
-```
+
 http://classic.scottr.org/presentations/git-in-5-minutes/
-```
-```
+
 https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf
-```
+
 
 
 
