@@ -1,0 +1,12 @@
+{
+    "nodes": [
+        {
+            "name": "web1",
+            "role": "web server",
+            "id": "unique_id_1",
+            "cpupct": 47
+        }
+    ],
+    "links": [
+    ]
+}

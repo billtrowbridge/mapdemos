@@ -1,0 +1,62 @@
+{
+    "nodes": [
+        {
+            "name": "web1",
+            "role": "web server",
+            "id": "unique_id_1",
+            "cpupct": 47
+        },
+        {
+            "name": "web2",
+            "role": "web server",
+            "id": "unique_id_2",
+            "cpupct": 62
+        },
+        {
+            "name": "proxy1",
+            "role": "proxy",
+            "id": "unique_id_3",
+            "cpupct": 18
+        },
+        {
+            "name": "chat1",
+            "role": "chat server",
+            "id": "unique_id_4",
+            "cpupct": 71
+        },
+        {
+            "name": "login1",
+            "role": "login server",
+            "id": "unique_id_5",
+            "cpupct": 8
+        },
+        {
+            "name": "services1",
+            "role": "services server",
+            "id": "unique_id_6",
+            "cpupct": 23
+        }
+    ],
+    "links": [
+        {
+            "source": "unique_id_1",
+            "target": "unique_id_3"
+        },
+        {
+            "source": "unique_id_2",
+            "target": "unique_id_3"
+        },
+        {
+            "source": "unique_id_3",
+            "target": "unique_id_4"
+        },
+        {
+            "source": "unique_id_3",
+            "target": "unique_id_5"
+        },
+        {
+            "source": "unique_id_3",
+            "target": "unique_id_6"
+        }
+    ]
+}
