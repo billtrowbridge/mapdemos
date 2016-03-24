@@ -46,6 +46,9 @@ or push a file with secure information to your repository.
 
 If on Windows, choose the options to install just the Windows stuff.
 
+You will also want to install the Credential Manager, which will keep your credentials so you don't need
+to re-enter your name and password as frequently.
+
 NOTE: git comes with a built-in GUI Tool called git-gui.  It's not great.
 At some later time, you might want to become familiar with that,
 or download the "GitHub Desktop" GUI Client (which I sometimes use)
